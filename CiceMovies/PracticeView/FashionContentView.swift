@@ -12,8 +12,8 @@ struct CustomNavigationView: View {
         ZStack{
             HStack(spacing: 15) {
                 Button(action: {}, label: {
-                    Image("Menu")
-                        .renderingMode(.original)
+                    Image(systemName: "slider.horizontal.3")
+                        
                 })
                 Spacer()
                 Text("Seasons")
@@ -79,6 +79,11 @@ struct CardCarrousel: View {
                         .frame(width: 10, height: 10)
                 })
                 .padding(.trailing, 15)
+                .contextMenu(ContextMenu(menuItems: {
+                    Text("Menu Item 1")
+                    Text("Menu Item 2")
+                    Text("Menu Item 3")
+                }))
             }
         }
     }
@@ -102,11 +107,24 @@ struct CustomMainView: View {
                     .padding()
                 })
                 .foregroundColor(.black)
+                .contextMenu(ContextMenu(menuItems: {
+                    Text("Menu Item 1")
+                    Text("Menu Item 2")
+                    Text("Menu Item 3")
+                }))
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    
+                }, label: {
                     Image(systemName: "slider.horizontal.3")
                         .padding()
-                }).foregroundColor(.black)
+                })
+                .foregroundColor(.black)
+                .contextMenu(menuItems: {
+                    Text("Menu Item 1")
+                    Text("Menu Item 2")
+                    Text("Menu Item 3")
+                })
             }
             
             HStack{

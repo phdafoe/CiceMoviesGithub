@@ -20,8 +20,8 @@ struct DetalleFashionContentView: View {
                     Image(modelData.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: .infinity, maxHeight: 300)
-                    
+                        .frame(maxWidth: .infinity, maxHeight: 600)
+                        .clipped()
                     HStack{
                         GeometryReader{ proxy in
                             Button(action: {
@@ -58,7 +58,7 @@ struct DetalleFashionContentView: View {
                         }
                     }
                     
-                    Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+                    Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. \n \n Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
                         .font(.subheadline)
                     
                     Text("Select Size")
@@ -76,15 +76,46 @@ struct DetalleFashionContentView: View {
                     }
                     
                     HStack{
-                        
+                        Button(action: {
+                            self.presentMode.wrappedValue.dismiss()
+                        }, label: {
+                            Text("Add to Cart").padding().border(Color.black, width: 1.5)
+                        })
+                        .foregroundColor(.black)
+                        Spacer()
+                        Button(action: {
+                            
+                        }, label: {
+                            Text("   Buy now   ").padding()
+                        })
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .cornerRadius(10)
                     }
+                    .padding([.leading, .trailing, .top], 20)
                 }
+                .padding()
+                .background(
+                    rounded()
+                        .fill(Color.white)
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: -50)
+                )
+                .padding(.top, -180)
+                
             }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
         }
-        .padding()
-        .ignoresSafeArea()
+        .padding(.top, 30)
+        .edgesIgnoringSafeArea(.top)
+    }
+}
+
+
+struct rounded: Shape {
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 35, height: 35))
+        return Path(path.cgPath)
     }
 }
 
