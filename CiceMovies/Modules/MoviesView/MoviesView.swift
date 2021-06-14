@@ -11,12 +11,16 @@ struct MoviesView: View {
     
     @ObservedObject var presenter = MoviesPresenterImpl()
     
-    var body: some View {
-        Text("\(self.presenter.arrayMovies.count)")
-            .onAppear(perform: {
-                self.presenter.fetchDataMovies()
-            })
-            .navigationTitle("Hola a todos")
+    var body: some View { 
+        List{
+            ForEach(self.presenter.arrayMovies) { item in
+                PosterCardArtworkView(model: item)
+            }
+        }
+        .onAppear(perform: {
+            self.presenter.fetchDataMovies()
+        })
+        .navigationTitle("Hola a todos")
     }
 }
 

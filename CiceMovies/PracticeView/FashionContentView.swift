@@ -92,10 +92,20 @@ struct CardCarrousel: View {
 struct CustomMainView: View {
     
     @State private var selected = "Dress"
+    @State private var isExpanded = false
     
     var body: some View {
         VStack(spacing: 20){
             HStack{
+                /*DisclosureGroup(
+                    isExpanded: self.$isExpanded.animation(),
+                    content: { VStack(alignment: .leading){
+                        Label("Sun", systemImage: "sun.max")
+                        Label("Sun", systemImage: "sun.max")
+                        Label("Sun", systemImage: "sun.max")
+                    } },
+                    label: { Label("Casual Dress", systemImage: "") }
+                )*/
                 Button(action: {}, label: {
                     HStack{
                         Text("Casual Dress")
@@ -103,15 +113,12 @@ struct CustomMainView: View {
                         Spacer()
                         Image(systemName: "chevron.down")
                             .font(.title3)
+
                     }
                     .padding()
                 })
                 .foregroundColor(.black)
-                .contextMenu(ContextMenu(menuItems: {
-                    Text("Menu Item 1")
-                    Text("Menu Item 2")
-                    Text("Menu Item 3")
-                }))
+                
                 
                 Button(action: {
                     

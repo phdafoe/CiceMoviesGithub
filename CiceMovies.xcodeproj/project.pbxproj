@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090426212677C6C2007123CD /* AppleMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090426202677C6C2007123CD /* AppleMoviesViewModel.swift */; };
+		090426252677CBE3007123CD /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 090426242677CBE3007123CD /* movies.json */; };
+		0904262A2677D191007123CD /* PosterCardArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090426292677D191007123CD /* PosterCardArtworkView.swift */; };
 		09596BC3266FE175009E75DF /* CiceMoviesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09596BC2266FE175009E75DF /* CiceMoviesApp.swift */; };
 		09596BC5266FE175009E75DF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09596BC4266FE175009E75DF /* MainView.swift */; };
 		09596BC7266FE177009E75DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09596BC6266FE177009E75DF /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090426202677C6C2007123CD /* AppleMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMoviesViewModel.swift; sourceTree = "<group>"; };
+		090426242677CBE3007123CD /* movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
+		090426292677D191007123CD /* PosterCardArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCardArtworkView.swift; sourceTree = "<group>"; };
 		09596BBF266FE175009E75DF /* CiceMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CiceMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09596BC2266FE175009E75DF /* CiceMoviesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiceMoviesApp.swift; sourceTree = "<group>"; };
 		09596BC4266FE175009E75DF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -61,6 +67,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0904261D2677C595007123CD /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				0904261F2677C6A2007123CD /* ViewModel */,
+				09D095ED2673EF4E008B3C67 /* MoviesCoordinator.swift */,
+				09D095F02673F400008B3C67 /* MoviesProvider.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		0904261F2677C6A2007123CD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				090426202677C6C2007123CD /* AppleMoviesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		090426232677CBDC007123CD /* SRC */ = {
+			isa = PBXGroup;
+			children = (
+				090426242677CBE3007123CD /* movies.json */,
+			);
+			path = SRC;
+			sourceTree = "<group>";
+		};
 		09596BB6266FE175009E75DF = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +112,7 @@
 		09596BC1266FE175009E75DF /* CiceMovies */ = {
 			isa = PBXGroup;
 			children = (
+				090426232677CBDC007123CD /* SRC */,
 				09D095E22673E346008B3C67 /* BaseVIP */,
 				09D095D82673E19A008B3C67 /* Managers */,
 				09D095D32673E09C008B3C67 /* Modules */,
@@ -106,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				09596BD4266FE6CF009E75DF /* HeaderComponent.swift */,
+				090426292677D191007123CD /* PosterCardArtworkView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -140,11 +174,10 @@
 		09D095D42673E0B7008B3C67 /* MoviesView */ = {
 			isa = PBXGroup;
 			children = (
+				0904261D2677C595007123CD /* Infrastructure */,
 				09D095D52673E0D8008B3C67 /* MoviesView.swift */,
 				09D095E72673EBDC008B3C67 /* MoviesPresenter.swift */,
 				09D095EA2673EC68008B3C67 /* MoviesInteractor.swift */,
-				09D095ED2673EF4E008B3C67 /* MoviesCoordinator.swift */,
-				09D095F02673F400008B3C67 /* MoviesProvider.swift */,
 			);
 			path = MoviesView;
 			sourceTree = "<group>";
@@ -224,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				090426252677CBE3007123CD /* movies.json in Resources */,
 				09596BCA266FE177009E75DF /* Preview Assets.xcassets in Resources */,
 				09596BC7266FE177009E75DF /* Assets.xcassets in Resources */,
 			);
@@ -241,6 +275,8 @@
 				09D095E42673E36E008B3C67 /* BaseVIP.swift in Sources */,
 				09D095EE2673EF4E008B3C67 /* MoviesCoordinator.swift in Sources */,
 				09D095EB2673EC68008B3C67 /* MoviesInteractor.swift in Sources */,
+				090426212677C6C2007123CD /* AppleMoviesViewModel.swift in Sources */,
+				0904262A2677D191007123CD /* PosterCardArtworkView.swift in Sources */,
 				09596BD5266FE6CF009E75DF /* HeaderComponent.swift in Sources */,
 				09D8298E267289FB00EA5E29 /* FashionContentView.swift in Sources */,
 				09D095CE2673DF73008B3C67 /* AppleMoviesModel.swift in Sources */,

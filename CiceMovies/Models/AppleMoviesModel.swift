@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - AppleMoviesModel
-struct AppleMoviesModel: Codable {
+struct AppleMoviesServerModel: Codable {
     let feed: Feed?
 
     enum CodingKeys: String, CodingKey {
@@ -105,3 +105,18 @@ struct Genre: Codable {
 enum Kind: String, Codable {
     case movie = "movie"
 }
+
+extension AppleMoviesServerModel {
+    
+    static var stubbedMovies: [ResultMovies] {
+        let response: AppleMoviesServerModel? = try? Bundle.main.loadAndDecodeJSON(filename: "movies")
+        return response?.feed?.results ?? []
+    }
+    
+    static var stubbedResultMovie: ResultMovies {
+        stubbedMovies[0]
+    }
+}
+
+
+
