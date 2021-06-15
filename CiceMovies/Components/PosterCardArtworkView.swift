@@ -32,7 +32,7 @@ struct PosterCardArtworkView: View {
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 4))
             Text(modelData.name ?? "")
                 .padding()
-                .font(.title2)
+                .font(.callout)
                 .foregroundColor(.white)
             
         }

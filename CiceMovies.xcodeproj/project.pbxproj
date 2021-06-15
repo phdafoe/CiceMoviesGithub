@@ -10,6 +10,7 @@
 		090426212677C6C2007123CD /* AppleMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090426202677C6C2007123CD /* AppleMoviesViewModel.swift */; };
 		090426252677CBE3007123CD /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 090426242677CBE3007123CD /* movies.json */; };
 		0904262A2677D191007123CD /* PosterCardArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090426292677D191007123CD /* PosterCardArtworkView.swift */; };
+		091CF8DD2677EA3A00B9F87B /* CarrouselPostArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF8DC2677EA3A00B9F87B /* CarrouselPostArtView.swift */; };
 		09596BC3266FE175009E75DF /* CiceMoviesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09596BC2266FE175009E75DF /* CiceMoviesApp.swift */; };
 		09596BC5266FE175009E75DF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09596BC4266FE175009E75DF /* MainView.swift */; };
 		09596BC7266FE177009E75DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09596BC6266FE177009E75DF /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		090426202677C6C2007123CD /* AppleMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMoviesViewModel.swift; sourceTree = "<group>"; };
 		090426242677CBE3007123CD /* movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
 		090426292677D191007123CD /* PosterCardArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCardArtworkView.swift; sourceTree = "<group>"; };
+		091CF8DC2677EA3A00B9F87B /* CarrouselPostArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrouselPostArtView.swift; sourceTree = "<group>"; };
 		09596BBF266FE175009E75DF /* CiceMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CiceMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09596BC2266FE175009E75DF /* CiceMoviesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiceMoviesApp.swift; sourceTree = "<group>"; };
 		09596BC4266FE175009E75DF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				09596BD4266FE6CF009E75DF /* HeaderComponent.swift */,
 				090426292677D191007123CD /* PosterCardArtworkView.swift */,
+				091CF8DC2677EA3A00B9F87B /* CarrouselPostArtView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				091CF8DD2677EA3A00B9F87B /* CarrouselPostArtView.swift in Sources */,
 				09CC161E267144FB002E0EED /* ControlViewsContainer.swift in Sources */,
 				09D095D62673E0D8008B3C67 /* MoviesView.swift in Sources */,
 				09D095E42673E36E008B3C67 /* BaseVIP.swift in Sources */,

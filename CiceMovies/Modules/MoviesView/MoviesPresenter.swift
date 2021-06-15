@@ -19,7 +19,7 @@ class MoviesPresenterImpl: BasePresenter, ObservableObject {
     var interactor: MoviesInteractorInputProtocol? { return super.baseInteractor as? MoviesInteractorInputProtocol }
     
     func fetchDataMovies() {
-        self.interactor?.fetchDataMoviesInteractor()
+        self.interactor?.fetchDataMoviesInteractor(top: "top-movies", all: "all", number: "\(10)")
     }
     
     func getImageFromUrl(imageUrl: String) {

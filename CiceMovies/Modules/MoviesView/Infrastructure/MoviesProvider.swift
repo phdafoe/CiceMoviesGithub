@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol MoviesProviderProtocol {
-    func fetchMovies(completionHandler: @escaping (Result<AppleMoviesServerModel, NetworkingError>) -> ())
+    func fetchMovies(top: String, all: String, number: String, completionHandler: @escaping (Result<AppleMoviesServerModel, NetworkingError>) -> ())
 }
 
 class MoviesProviderImpl: MoviesProviderProtocol {
@@ -17,11 +17,14 @@ class MoviesProviderImpl: MoviesProviderProtocol {
     let provider: RequestManagerProtocol = RequestManager()
     var cancellable: Set<AnyCancellable> = []
     
-    func fetchMovies(completionHandler: @escaping (Result<AppleMoviesServerModel, NetworkingError>) -> ()) {
+    func fetchMovies(top: String, all: String, number: String, completionHandler: @escaping (Result<AppleMoviesServerModel, NetworkingError>) -> ()) {
+        
+        let aux: [CVarArg] = [top, all, number]
+        let endpointComplete = String(format: URLEndpoint.endpointMovies, arguments: aux)
         
         let request = RequestDTO(params: nil,
                                  method: .get,
-                                 endpoint: URLEndpoint.endpointMovies,
+                                 endpoint: endpointComplete,
                                  urlContext: .backend)
         
         self.provider.requestGeneric(requestDto: request, entityClass: AppleMoviesServerModel.self)

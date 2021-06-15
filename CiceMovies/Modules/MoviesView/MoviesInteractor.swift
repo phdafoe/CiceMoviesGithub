@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MoviesInteractorInputProtocol: BaseInteractorInputProtocol {
-    func fetchDataMoviesInteractor()
+    func fetchDataMoviesInteractor(top: String, all: String, number: String)
 }
 
 class MoviesInteractorImpl: BaseInteractor {
@@ -18,8 +18,9 @@ class MoviesInteractorImpl: BaseInteractor {
 }
 
 extension MoviesInteractorImpl: MoviesInteractorInputProtocol {
-    func fetchDataMoviesInteractor() {
-        self.provider.fetchMovies { [weak self] (result) in
+    
+    func fetchDataMoviesInteractor(top: String, all: String, number: String) {
+        self.provider.fetchMovies(top: top, all: all, number: number) { [weak self] (result) in
             guard self != nil else { return }
             switch result{
             case .success(let respose):
