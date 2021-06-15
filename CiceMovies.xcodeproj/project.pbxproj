@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,11 @@
 		09D095F12673F400008B3C67 /* MoviesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D095F02673F400008B3C67 /* MoviesProvider.swift */; };
 		09D8298E267289FB00EA5E29 /* FashionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D8298D267289FB00EA5E29 /* FashionContentView.swift */; };
 		09D829922672A15B00EA5E29 /* DetalleFashionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D829912672A15B00EA5E29 /* DetalleFashionContentView.swift */; };
+		09E7563826791B1A002769FA /* WalkthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E7563726791B1A002769FA /* WalkthroughView.swift */; };
+		09E7563C26792338002769FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E7563B26792338002769FA /* ContentView.swift */; };
+		09E756412679254B002769FA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E756402679254B002769FA /* LoginView.swift */; };
+		09E75644267925BF002769FA /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E75643267925BF002769FA /* LoginPresenter.swift */; };
+		09E7564826793BB1002769FA /* Vera in Frameworks */ = {isa = PBXBuildFile; productRef = 09E7564726793BB1002769FA /* Vera */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +61,10 @@
 		09D095F02673F400008B3C67 /* MoviesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesProvider.swift; sourceTree = "<group>"; };
 		09D8298D267289FB00EA5E29 /* FashionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionContentView.swift; sourceTree = "<group>"; };
 		09D829912672A15B00EA5E29 /* DetalleFashionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleFashionContentView.swift; sourceTree = "<group>"; };
+		09E7563726791B1A002769FA /* WalkthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughView.swift; sourceTree = "<group>"; };
+		09E7563B26792338002769FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		09E756402679254B002769FA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		09E75643267925BF002769FA /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09E7564826793BB1002769FA /* Vera in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +131,7 @@
 				09D095CC2673DF5B008B3C67 /* Models */,
 				09596BD3266FE6BD009E75DF /* Components */,
 				09596BC2266FE175009E75DF /* CiceMoviesApp.swift */,
+				09E7563B26792338002769FA /* ContentView.swift */,
 				09D095D12673E072008B3C67 /* PracticeView */,
 				09596BC6266FE177009E75DF /* Assets.xcassets */,
 				09596BCB266FE177009E75DF /* Info.plist */,
@@ -169,6 +180,8 @@
 		09D095D32673E09C008B3C67 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				09E7563E2679246B002769FA /* LoginView */,
+				09E7563626791ACA002769FA /* WalkthroughView */,
 				09D095D42673E0B7008B3C67 /* MoviesView */,
 			);
 			path = Modules;
@@ -203,6 +216,23 @@
 			path = BaseVIP;
 			sourceTree = "<group>";
 		};
+		09E7563626791ACA002769FA /* WalkthroughView */ = {
+			isa = PBXGroup;
+			children = (
+				09E7563726791B1A002769FA /* WalkthroughView.swift */,
+			);
+			path = WalkthroughView;
+			sourceTree = "<group>";
+		};
+		09E7563E2679246B002769FA /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				09E756402679254B002769FA /* LoginView.swift */,
+				09E75643267925BF002769FA /* LoginPresenter.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +249,9 @@
 			dependencies = (
 			);
 			name = CiceMovies;
+			packageProductDependencies = (
+				09E7564726793BB1002769FA /* Vera */,
+			);
 			productName = CiceMovies;
 			productReference = 09596BBF266FE175009E75DF /* CiceMovies.app */;
 			productType = "com.apple.product-type.application";
@@ -246,6 +279,9 @@
 				Base,
 			);
 			mainGroup = 09596BB6266FE175009E75DF;
+			packageReferences = (
+				09E7564626793BB1002769FA /* XCRemoteSwiftPackageReference "Vera" */,
+			);
 			productRefGroup = 09596BC0266FE175009E75DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -275,10 +311,14 @@
 			files = (
 				091CF8DD2677EA3A00B9F87B /* CarrouselPostArtView.swift in Sources */,
 				09CC161E267144FB002E0EED /* ControlViewsContainer.swift in Sources */,
+				09E75644267925BF002769FA /* LoginPresenter.swift in Sources */,
+				09E7563C26792338002769FA /* ContentView.swift in Sources */,
 				09D095D62673E0D8008B3C67 /* MoviesView.swift in Sources */,
+				09E7563826791B1A002769FA /* WalkthroughView.swift in Sources */,
 				09D095E42673E36E008B3C67 /* BaseVIP.swift in Sources */,
 				09D095EE2673EF4E008B3C67 /* MoviesCoordinator.swift in Sources */,
 				09D095EB2673EC68008B3C67 /* MoviesInteractor.swift in Sources */,
+				09E756412679254B002769FA /* LoginView.swift in Sources */,
 				090426212677C6C2007123CD /* AppleMoviesViewModel.swift in Sources */,
 				0904262A2677D191007123CD /* PosterCardArtworkView.swift in Sources */,
 				09596BD5266FE6CF009E75DF /* HeaderComponent.swift in Sources */,
@@ -478,6 +518,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		09E7564626793BB1002769FA /* XCRemoteSwiftPackageReference "Vera" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/phdafoe/Vera.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		09E7564726793BB1002769FA /* Vera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09E7564626793BB1002769FA /* XCRemoteSwiftPackageReference "Vera" */;
+			productName = Vera;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 09596BB7266FE175009E75DF /* Project object */;
 }
