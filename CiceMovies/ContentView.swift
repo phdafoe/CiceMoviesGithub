@@ -9,11 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var authState: AuthenticationManager
     @AppStorage("currentPage") var currentPage = 1
     
     var body: some View {
         if currentPage > totalPages {
-            MoviesCoordinator.navigation()
+            if authState.loggedInUser != nil{
+                MoviesCoordinator.navigation()
+            } else {
+                LoginView()
+            }
         } else {
             WalkthroughView()
         }

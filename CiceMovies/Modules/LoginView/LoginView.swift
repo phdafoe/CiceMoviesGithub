@@ -11,7 +11,9 @@ let lightGreyColor = Color(red: 239/255, green: 243/255, blue: 244/255)
 
 struct LoginView: View {
     
+    @EnvironmentObject var authState: AuthenticationManager
     @ObservedObject var loginPresenter = LoginPresenter()
+    @State var authType = AuthenticationType.Signup
     
     var body: some View {
         VStack{
@@ -75,25 +77,47 @@ struct LoginView: View {
                             .background(lightGreyColor)
                             .cornerRadius(5)
                             .shadow(radius: 1)
-                        
+                        if !loginPresenter.passwordMessage.isEmpty {
+                            Text(loginPresenter.passwordMessage)
+                                .font(.caption)
+                                .foregroundColor(.red)
+                        }
+
                         PasswordTexField(title: "Password confirmation", text: self.$loginPresenter.passwordAgain)
                             .autocapitalization(.none)
                             .padding(5)
                             .background(lightGreyColor)
                             .cornerRadius(5)
                             .shadow(radius: 1)
+                        if !loginPresenter.passwordMessage.isEmpty {
+                            Text(loginPresenter.passwordMessage)
+                                .font(.caption)
+                                .foregroundColor(.red)
+                        }
                     }
                 }
             }
             Button(action: {
-                //
+                emailAuthenticationTapped()
             }, label: {
                 Text("Login ")
             }).disabled(!self.loginPresenter.isValid)
-            
         }
 
     }
+    
+    private func emailAuthenticationTapped() {
+        switch authType {
+        case .Signin:
+            authState.login(with: .emailAndPassword(email: self.$loginPresenter.email.wrappedValue,
+                                                    password: self.$loginPresenter.password.wrappedValue))
+        default:
+            authState.sigup(email: self.$loginPresenter.email.wrappedValue,
+                            password: self.$loginPresenter.password.wrappedValue,
+                            passwordConfirmation: self.$loginPresenter.passwordAgain.wrappedValue)
+        }
+    }
+    
 }
 
 struct UsernametextField: View {

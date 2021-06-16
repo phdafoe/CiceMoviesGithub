@@ -11,6 +11,8 @@ import Vera
 
 class LoginPresenter: ObservableObject {
     
+    var authType = AuthenticationType.Signin
+    
     enum PasswordChecked {
         case valid
         case empty
@@ -18,7 +20,6 @@ class LoginPresenter: ObservableObject {
         case notStrongEnough
     }
 
-    
     //Input
     @Published var name = ""
     @Published var lastname = ""
@@ -58,7 +59,6 @@ class LoginPresenter: ObservableObject {
             .eraseToAnyPublisher()
     }
     
-    
     private var isEmailValidPublisher: AnyPublisher<Bool, Never> {
         $email
             .debounce(for: 0.8, scheduler: RunLoop.main)
@@ -81,7 +81,6 @@ class LoginPresenter: ObservableObject {
             .eraseToAnyPublisher()
     }
     
-    // MARK: - Password
     private var isPasswordEmptyValidPublisher: AnyPublisher<Bool, Never> {
         $password
             .debounce(for: 0.8, scheduler: RunLoop.main)
@@ -125,6 +124,31 @@ class LoginPresenter: ObservableObject {
             .eraseToAnyPublisher()
     }
     
+    private var isPasswordValidPublisher: AnyPublisher<PasswordChecked, Never> {
+        Publishers.CombineLatest3(isPasswordEmptyValidPublisher, arePasswordEqualPublisher, isPasswordStrongEnoughPublisher)
+            .map { passwordIsEmpty, passwordAreEqual, passwordIsStrong in
+                if passwordIsEmpty {
+                    return .empty
+                } else if !passwordAreEqual {
+                    return .noMatch
+                } else if !passwordIsStrong {
+                    return .notStrongEnough
+                } else {
+                    return .valid
+                }
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private var isFormValidPublisher: AnyPublisher<Bool, Never> {
+        Publishers.CombineLatest4(isNameValidPublisher, isEmailValidPublisher, isUsernameValidPublisher, isPasswordValidPublisher)
+            .map { nameIsValid, emailIsValid, usernameIsValid, passwordIsValid in
+                return nameIsValid && emailIsValid && usernameIsValid && (passwordIsValid == .valid)
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    
     init() {
         //Validate Name
         isNameValidPublisher
@@ -158,7 +182,28 @@ class LoginPresenter: ObservableObject {
             }
             .assign(to: \.usernameMessage, on: self)
             .store(in: &cancellable)
+        
+        isPasswordValidPublisher
+            .receive(on: RunLoop.main)
+            .map { passwordChecked in
+                switch passwordChecked {
+                case .empty:
+                    return "Password no puede estar vacío"
+                case .noMatch:
+                    return "Paswword no esta igual"
+                case .notStrongEnough:
+                    return "Password no es lo suficientemente fuerte"
+                default:
+                    return ""
+                }
+            }
+            .assign(to: \.passwordMessage, on: self)
+            .store(in: &cancellable)
+        
+        isFormValidPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.isValid, on: self)
+            .store(in: &cancellable)
     }
-    
     
 }

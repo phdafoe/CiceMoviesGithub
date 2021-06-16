@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09003F6D267A780D0077287F /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09003F6C267A780D0077287F /* AuthenticationManager.swift */; };
+		09003F71267A79380077287F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 09003F70267A79380077287F /* FirebaseAuth */; };
+		09003F74267A7DE00077287F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09003F73267A7DE00077287F /* GoogleService-Info.plist */; };
 		090426212677C6C2007123CD /* AppleMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090426202677C6C2007123CD /* AppleMoviesViewModel.swift */; };
 		090426252677CBE3007123CD /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 090426242677CBE3007123CD /* movies.json */; };
 		0904262A2677D191007123CD /* PosterCardArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090426292677D191007123CD /* PosterCardArtworkView.swift */; };
@@ -37,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09003F6C267A780D0077287F /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		09003F73267A7DE00077287F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		090426202677C6C2007123CD /* AppleMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMoviesViewModel.swift; sourceTree = "<group>"; };
 		090426242677CBE3007123CD /* movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
 		090426292677D191007123CD /* PosterCardArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCardArtworkView.swift; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09E7564826793BB1002769FA /* Vera in Frameworks */,
+				09003F71267A79380077287F /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +138,7 @@
 				09596BD3266FE6BD009E75DF /* Components */,
 				09596BC2266FE175009E75DF /* CiceMoviesApp.swift */,
 				09E7563B26792338002769FA /* ContentView.swift */,
+				09003F73267A7DE00077287F /* GoogleService-Info.plist */,
 				09D095D12673E072008B3C67 /* PracticeView */,
 				09596BC6266FE177009E75DF /* Assets.xcassets */,
 				09596BCB266FE177009E75DF /* Info.plist */,
@@ -204,6 +211,7 @@
 				09D095D92673E1AA008B3C67 /* RequestManager.swift */,
 				09D095DC2673E1C4008B3C67 /* NetworkError.swift */,
 				09D095DF2673E1E4008B3C67 /* Utils.swift */,
+				09003F6C267A780D0077287F /* AuthenticationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -251,6 +259,7 @@
 			name = CiceMovies;
 			packageProductDependencies = (
 				09E7564726793BB1002769FA /* Vera */,
+				09003F70267A79380077287F /* FirebaseAuth */,
 			);
 			productName = CiceMovies;
 			productReference = 09596BBF266FE175009E75DF /* CiceMovies.app */;
@@ -281,6 +290,7 @@
 			mainGroup = 09596BB6266FE175009E75DF;
 			packageReferences = (
 				09E7564626793BB1002769FA /* XCRemoteSwiftPackageReference "Vera" */,
+				09003F6F267A79380077287F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 09596BC0266FE175009E75DF /* Products */;
 			projectDirPath = "";
@@ -297,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				090426252677CBE3007123CD /* movies.json in Resources */,
+				09003F74267A7DE00077287F /* GoogleService-Info.plist in Resources */,
 				09596BCA266FE177009E75DF /* Preview Assets.xcassets in Resources */,
 				09596BC7266FE177009E75DF /* Assets.xcassets in Resources */,
 			);
@@ -318,6 +329,7 @@
 				09D095E42673E36E008B3C67 /* BaseVIP.swift in Sources */,
 				09D095EE2673EF4E008B3C67 /* MoviesCoordinator.swift in Sources */,
 				09D095EB2673EC68008B3C67 /* MoviesInteractor.swift in Sources */,
+				09003F6D267A780D0077287F /* AuthenticationManager.swift in Sources */,
 				09E756412679254B002769FA /* LoginView.swift in Sources */,
 				090426212677C6C2007123CD /* AppleMoviesViewModel.swift in Sources */,
 				0904262A2677D191007123CD /* PosterCardArtworkView.swift in Sources */,
@@ -468,7 +480,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cice.iOS.CiceMovies;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cice.iOS.CiceMovies.icologic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -489,7 +501,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cice.iOS.CiceMovies;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cice.iOS.CiceMovies.icologic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -520,6 +532,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		09003F6F267A79380077287F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.1;
+			};
+		};
 		09E7564626793BB1002769FA /* XCRemoteSwiftPackageReference "Vera" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/phdafoe/Vera.git";
@@ -531,6 +551,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		09003F70267A79380077287F /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09003F6F267A79380077287F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		09E7564726793BB1002769FA /* Vera */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 09E7564626793BB1002769FA /* XCRemoteSwiftPackageReference "Vera" */;
